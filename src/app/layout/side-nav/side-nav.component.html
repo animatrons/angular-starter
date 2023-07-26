@@ -1,6 +1,14 @@
-<div class="wrapper">
-  <mat-card class="logo flex justify-content-center align-items-center">
-    <h1>TYTLE</h1>
+<aside aria-label="Sidebar" #sidenavMain class="wrapper">
+  <mat-card class="logo flex justify-content-center align-items-center between flex-row">
+    <h1 *ngIf="opened" class="pl-1">TYTLE</h1>
+    <button mat-button (click)="toggleDrawer()">
+      <mat-icon *ngIf="opened">
+        arrow_back_ios
+      </mat-icon>
+      <mat-icon *ngIf="!opened">
+        arrow_forward_ios
+      </mat-icon>
+    </button>
   </mat-card>
 
   <div class="container">
@@ -9,7 +17,7 @@
       <ng-container *ngFor="let item of navTree">
         <mat-list-item (click)="item.active = !item.active" [activated]="(url$ | async) === item.path">
           <mat-icon matListItemIcon>table</mat-icon>
-          <a matListItemTitle routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
+          <a matListItemTitle #link routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
           <span matListItemMeta *ngIf="item.children">
             <mat-icon class="expand-icon" [ngClass]="{'rotated' : item.active}">
               expand_more
@@ -25,7 +33,17 @@
         </div>
       </ng-container>
 
+      <ng-container *ngIf="!opened">
+        <mat-list-item *ngFor="let item of navTree" (click)="item.active = !item.active" [activated]="(url$ | async) === item.path">
+          <mat-icon matListItemIcon>table</mat-icon>
+          <a matListItemTitle #link routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
+        </mat-list-item>
+      </ng-container>
+
+      <div class="mt-auto submenu" #subMenuAdmin >
+
+      </div>
 
     </mat-nav-list>
   </div>
-</div>
+</aside>
