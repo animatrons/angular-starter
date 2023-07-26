@@ -1,0 +1,79 @@
+$shell-theme-primary: mat-palette($mat-cyan);
+$shell-theme-accent: mat-palette($mat-teal);
+$shell-theme-warn: mat-palette($mat-red);
+
+$ruz-primary: (
+  50: #a6cacf,
+  100: #93cad1,
+  200: #75bdc7,
+  300: #00bcd4,
+  400: #0295a8,
+  500: #028697,
+  600: #016370,
+  700: #02505a,
+  800: #00444d,
+  900: #003238,
+  A100: #5823d3,
+  A200: #4000d4,
+  A400: #202eac,
+  A700: #1c2574,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$ruz-secondary: (
+  50: #68918d,
+  100: #478d86,
+  200: #28968b,
+  300: #009688,
+  400: #007e71,
+  500: #006e63,
+  600: #00574e,
+  700: #07554d,
+  800: #094943,
+  900: #004740,
+  A100: #3c9771,
+  A200: #209e6a,
+  A400: #0c9c60,
+  A700: #00834c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff,
+  ),
+);
+
+$ruz-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($ruz-primary, 300, 200, 500),
+    accent: mat.define-palette($ruz-primary, A400, A200, A700),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+));
