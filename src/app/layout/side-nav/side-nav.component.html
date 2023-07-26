@@ -1,0 +1,31 @@
+<div class="wrapper">
+  <mat-card class="logo flex justify-content-center align-items-center">
+    <h1>TYTLE</h1>
+  </mat-card>
+
+  <div class="container">
+    <mat-nav-list>
+
+      <ng-container *ngFor="let item of navTree">
+        <mat-list-item (click)="item.active = !item.active" [activated]="(url$ | async) === item.path">
+          <mat-icon matListItemIcon>table</mat-icon>
+          <a matListItemTitle routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
+          <span matListItemMeta *ngIf="item.children">
+            <mat-icon class="expand-icon" [ngClass]="{'rotated' : item.active}">
+              expand_more
+            </mat-icon>
+          </span>
+        </mat-list-item>
+
+        <div *ngIf="item.children" [ngClass]="{'expanded': item.active}" [hidden]="!item.active" class="submenu">
+          <mat-list-item *ngFor="let child of item.children">
+            <a matListItemTitle routerLinkActive="list-item-active" [routerLink]="child.path">{{child.title}}</a>
+            <mat-icon matListItemIcon>table</mat-icon>
+          </mat-list-item>
+        </div>
+      </ng-container>
+
+
+    </mat-nav-list>
+  </div>
+</div>

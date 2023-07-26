@@ -1,0 +1,24 @@
+<mat-drawer-container class="main-container">
+  <mat-drawer [(opened)]="opened" class="sidenav" mode="side" disableClose="true" opened>
+    <app-side-nav [navTree]="navTree"></app-side-nav>
+  </mat-drawer>
+
+  <div class="wrapper">
+    <header>
+      <button mat-button (click)="toggleDrawer()">
+        <mat-icon *ngIf="opened">
+          arrow_back_ios
+        </mat-icon>
+        <mat-icon *ngIf="!opened">
+          arrow_forward_ios
+        </mat-icon>
+      </button>
+    </header>
+
+    <div class="content">
+      <ng-content>
+
+      </ng-content>
+    </div>
+  </div>
+</mat-drawer-container>

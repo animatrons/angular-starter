@@ -1,0 +1,42 @@
+@import "/src/styles/theme.scss";
+
+.wrapper {
+  background-color: map-get($md-primary, 50);
+  height: 100%;
+
+  .logo {
+    padding: 1rem 0rem;
+    h1 {
+      margin: 0 !important;
+    }
+  }
+
+  .container {
+    margin-top: 1em;
+    .expand-icon {
+      transition: 300ms ease-in-out;
+      transform: rotate(0deg);
+      &.rotated {
+        transform: rotate(180deg);
+      }
+    }
+    .submenu {
+      overflow-y: hidden;
+      transition: transform 300ms ease;
+      transform: scaleY(0);
+      transform-origin: top;
+      padding-left: 30px;
+      &.expanded {
+        transform: scaleY(1);
+      }
+    }
+    a {
+      text-decoration: none;
+      font-size: 17px;
+    }
+    .list-item-active {
+      color: rgb(40, 57, 218) !important;
+      font-style: normal;
+    }
+  }
+}

@@ -2,7 +2,7 @@ $shell-theme-primary: mat-palette($mat-cyan);
 $shell-theme-accent: mat-palette($mat-teal);
 $shell-theme-warn: mat-palette($mat-red);
 
-$ruz-primary: (
+$md-primary: (
   50: #a6cacf,
   100: #93cad1,
   200: #75bdc7,
@@ -35,7 +35,7 @@ $ruz-primary: (
   ),
 );
 
-$ruz-secondary: (
+$md-secondary: (
   50: #68918d,
   100: #478d86,
   200: #28968b,
@@ -70,8 +70,8 @@ $ruz-secondary: (
 
 $ruz-theme: mat.define-light-theme((
   color: (
-    primary: mat.define-palette($ruz-primary, 300, 200, 500),
-    accent: mat.define-palette($ruz-primary, A400, A200, A700),
+    primary: mat.define-palette($md-primary, 300, 200, 500),
+    accent: mat.define-palette($md-primary, A400, A200, A700),
     warn: mat.define-palette(mat.$red-palette),
   ),
   typography: mat.define-typography-config(),

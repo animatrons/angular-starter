@@ -1,9 +1,10 @@
 @use '@angular/material' as mat;
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import '@angular/material/theming';
 
 @include mat.core();
 
-@import './themes/feiruz-theme.scss';
+@import 'theme-ruz.scss';
 
 .ruz-theme {
   @include mat.core-theme($ruz-theme);
