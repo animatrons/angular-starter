@@ -16,20 +16,25 @@ export class AppComponent {
   navTree: NavTree[] = [
     {
       title: 'Module 0',
-      path: 'module0',
+      path: '/module0',
+      icon: 'home'
     },
     {
       title: 'Module 10',
       active: false,
+      icon: 'radio_button_checked',
+
       children: [
         {
           title: 'Page 1',
           path: '/module1/page1',
+          icon: 'shopping_cart_checkout',
           active: false,
         },
         {
           title: 'Page 2',
           active: false,
+          icon: 'star_half',
           path: '/module1/page2',
         },
       ]
@@ -40,11 +45,13 @@ export class AppComponent {
       children: [
         {
           title: 'Page 1',
+          icon: 'dataset',
           active: false,
           path: '/module2/page1',
         },
         {
           title: 'Page 2',
+          icon: 'settings_accessibility',
           active: false,
           path: '/module2/page2',
         },

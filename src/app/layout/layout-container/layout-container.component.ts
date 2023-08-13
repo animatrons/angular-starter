@@ -14,10 +14,5 @@ export class LayoutContainerComponent {
 
   toggleDrawer() {
     this.opened = !this.opened;
-    // if (this.opened) {
-    //   this.drawer.nativeElement.style = '';
-    // } else {
-    //   this.drawer.nativeElement.style.width = '64px';
-    // }
   }
 }

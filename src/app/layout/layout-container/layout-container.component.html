@@ -1,17 +1,25 @@
-<mat-drawer-container class="main-container" autosize>
-  <mat-drawer #drawer [opened]="true" class="sidenav" mode="side" fixedInViewport="true" [attr.role]="'navigation'">
-    <app-side-nav (openChanged)="toggleDrawer()" [navTree]="navTree"></app-side-nav>
-  </mat-drawer>
+<div class="flex flex-column w-100 h-100">
+  <header class="flex between align-items-center">
+    <span>
+      <strong class="logo">LOGO</strong>
+    </span>
 
-  <div class="wrapper">
-    <!-- <header>
+    <span>
+      <strong class="logo">LOGO</strong>
+    </span>
+  </header>
+  <mat-drawer-container class="main-container" autosize>
+    <mat-drawer #drawer [opened]="true" class="sidenav" mode="side" fixedInViewport="true" [attr.role]="'navigation'">
+      <app-side-nav (openChanged)="toggleDrawer()" [navTree]="navTree"></app-side-nav>
+    </mat-drawer>
 
-    </header> -->
+    <div class="wrapper">
 
-    <div class="content">
-      <ng-content>
+      <div class="content">
+        <ng-content>
 
-      </ng-content>
+        </ng-content>
+      </div>
     </div>
-  </div>
-</mat-drawer-container>
+  </mat-drawer-container>
+</div>

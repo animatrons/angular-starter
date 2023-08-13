@@ -1,12 +1,14 @@
+@import "/src/styles/theme.scss";
+header {
+  padding: 10px 15px;
+  background-color: map-get($md-background, 100);
+}
 .main-container {
-  min-height: 100vh;
+  height: 100%;
   width: 100%;
-  .sidenav {
-    // max-width: 250px;
-  }
   .wrapper {
     display: flex;
-    height: 100vh;
+    // height: 100vh;
     flex-direction: column;
   }
 
@@ -23,10 +25,6 @@
   }
 
   .content {
-    // height: 100%;
-    // width: 100%;
-    padding: 2em;
-    // display: flex;
-    // flex-grow: 1;
+    padding: 1rem 2em;
   }
 }
