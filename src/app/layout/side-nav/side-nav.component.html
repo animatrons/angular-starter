@@ -1,5 +1,5 @@
 <aside aria-label="Sidebar" #sidenavMain class="wrapper">
-  <mat-card class="logo flex justify-content-center align-items-center between flex-row">
+  <div class="logo flex justify-content-center align-items-center between flex-row">
     <h1 *ngIf="opened" class="pl-1">TYTLE</h1>
     <button mat-button (click)="toggleDrawer()">
       <mat-icon *ngIf="opened">
@@ -9,35 +9,45 @@
         arrow_forward_ios
       </mat-icon>
     </button>
-  </mat-card>
+  </div>
 
   <div class="container">
     <mat-nav-list>
 
-      <ng-container *ngFor="let item of navTree">
-        <mat-list-item (click)="item.active = !item.active" [activated]="(url$ | async) === item.path">
-          <mat-icon matListItemIcon>table</mat-icon>
-          <a matListItemTitle #link routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
-          <span matListItemMeta *ngIf="item.children">
-            <mat-icon class="expand-icon" [ngClass]="{'rotated' : item.active}">
-              expand_more
-            </mat-icon>
-          </span>
-        </mat-list-item>
-
-        <div *ngIf="item.children" [ngClass]="{'expanded': item.active}" [hidden]="!item.active" class="submenu">
-          <mat-list-item *ngFor="let child of item.children">
-            <a matListItemTitle routerLinkActive="list-item-active" [routerLink]="child.path">{{child.title}}</a>
-            <mat-icon matListItemIcon>table</mat-icon>
+      <ng-container *ngIf="opened">
+        <ng-container *ngFor="let item of navTree">
+          <mat-list-item (click)="item.active = !item.active; activateLink(item.path ?? null)" [ngClass]="{'list-item-active': (url$ | async) === item.path}">
+            <mat-icon class="material-icons-outlined"  matListItemIcon>{{item.icon ?? 'description'}}</mat-icon>
+            <a matListItemTitle #link [routerLink]="item.path">{{item.title}}</a>
+            <span matListItemMeta *ngIf="item.children">
+              <mat-icon class="expand-icon" [ngClass]="{'rotated' : item.active}">
+                expand_more
+              </mat-icon>
+            </span>
           </mat-list-item>
-        </div>
+
+          <div *ngIf="item.children" [ngClass]="{'expanded': item.active}" [hidden]="!item.active" class="submenu">
+            <mat-list-item (click)="activateLink(child.path ?? null)" *ngFor="let child of item.children" [ngClass]="{'list-item-active': (url$ | async) === child.path}" >
+              <a matListItemTitle routerLinkActive="list-item-active" [routerLink]="child.path">{{child.title}}</a>
+              <mat-icon class="material-icons-outlined" matListItemIcon>{{child.icon ?? 'description'}}</mat-icon>
+            </mat-list-item>
+          </div>
+        </ng-container>
       </ng-container>
 
       <ng-container *ngIf="!opened">
-        <mat-list-item *ngFor="let item of navTree" (click)="item.active = !item.active" [activated]="(url$ | async) === item.path">
-          <mat-icon matListItemIcon>table</mat-icon>
-          <a matListItemTitle #link routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
-        </mat-list-item>
+        <ng-container *ngFor="let item of navTree" >
+          <mat-list-item *ngIf="!item.children" [ngClass]="{'list-item-active': (url$ | async) === item.path}" (click)="activateLink(item.path ?? null)">
+            <mat-icon class="material-icons-outlined" matListItemIcon>{{item.icon ?? 'description'}}</mat-icon>
+            <a matListItemTitle #link2 routerLinkActive="list-item-active" [routerLink]="item.path">{{item.title}}</a>
+          </mat-list-item>
+          <ng-container *ngIf="item.children">
+            <mat-list-item *ngFor="let child of item.children" [ngClass]="{'list-item-active': (url$ | async) === child.path}" (click)="activateLink(child.path ?? null)">
+              <mat-icon class="material-icons-outlined" matListItemIcon>{{child.icon ?? 'description'}}</mat-icon>
+              <a matListItemTitle #link3 routerLinkActive="list-item-active" [routerLink]="child.path">{{child.title}}</a>
+            </mat-list-item>
+          </ng-container>
+        </ng-container>
       </ng-container>
 
       <div class="mt-auto submenu" #subMenuAdmin >

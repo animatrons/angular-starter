@@ -2,6 +2,15 @@ $shell-theme-primary: mat-palette($mat-cyan);
 $shell-theme-accent: mat-palette($mat-teal);
 $shell-theme-warn: mat-palette($mat-red);
 
+$md-background: (
+  50: #f3f3f3,
+  100: #ebf1f1,
+  200: #dae1e2,
+  300: #cce7eb,
+  400: #a6c8cc,
+  500: #97b4b8,
+);
+
 $md-primary: (
   50: #a6cacf,
   100: #93cad1,

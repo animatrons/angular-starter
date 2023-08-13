@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Observable, filter, map, tap } from 'rxjs';
+import { Observable, filter, map, share, shareReplay, tap } from 'rxjs';
 import { NavTree } from 'src/app/shared/types/util.interfaces';
 
 @Component({
@@ -23,11 +23,12 @@ export class SideNavComponent {
   expand2 = false;
   url$!: Observable<string>
 
-  constructor(route: ActivatedRoute, router: Router) {
+  constructor(route: ActivatedRoute, private router: Router) {
 
     this.url$ = router.events.pipe(
       filter(evt => evt instanceof NavigationEnd),
-      map(evt => (evt as NavigationEnd).url)
+      map(evt => (evt as NavigationEnd).url),
+      shareReplay(),
     )
   }
 
@@ -42,7 +43,21 @@ export class SideNavComponent {
       this.sidenavMain.nativeElement.classList.remove('open-nav-state');
       this.sidenavMain.nativeElement.classList.add('close-nav-state');
       this.sidenavMain.nativeElement.style.width = '64px';
+      this.collapseAll(this.navTree);
     }
+  }
+
+  collapseAll(tree: NavTree[]) {
+    tree.forEach(item => {
+      item.active = false;
+      if (item.children) {
+        this.collapseAll(item.children);
+      }
+    })
+  }
+
+  activateLink(path: string | null) {
+    if (path) this.router.navigate([path]);
   }
 
 }
