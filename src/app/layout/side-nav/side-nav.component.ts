@@ -1,5 +1,8 @@
+import { AsyncPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { Observable, filter, map, share, shareReplay, tap } from 'rxjs';
 import { NavTree } from 'src/app/shared/types/util.interfaces';
 
@@ -7,7 +10,9 @@ import { NavTree } from 'src/app/shared/types/util.interfaces';
   templateUrl: './side-nav.component.html',
   selector: 'app-side-nav',
   styleUrls: ['./side-nav.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [NgIf, NgFor, NgClass, AsyncPipe, RouterLink, MatIconModule, MatListModule]
 })
 export class SideNavComponent {
   @Input() toggled!: boolean;

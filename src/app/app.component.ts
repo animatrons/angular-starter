@@ -56,6 +56,11 @@ export class AppComponent {
           path: '/module2/page2',
         },
       ]
+    },
+    {
+      title: 'Feature 1',
+      path: '/feature1',
+      icon: 'shopping_cart_checkout'
     }
   ]
 }
