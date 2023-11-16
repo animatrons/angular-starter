@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
 import { NavTree } from './shared/types/util.interfaces';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { LayoutContainerComponent } from './layout/layout-container/layout-container.component';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   template: `
     <app-layout-container [navTree]="navTree" class="h-100 w-100 ruz-theme">
       <router-outlet></router-outlet>
     </app-layout-container>
   `,
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet, LayoutContainerComponent]
 })
 export class AppComponent {
   title = 'angular-starter';
