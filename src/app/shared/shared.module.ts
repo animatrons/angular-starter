@@ -44,6 +44,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PathRootMatchPipe } from './pipes/path-root-match.pipe';
 
 const modules = [
   CommonModule,
@@ -93,8 +94,13 @@ const modules = [
   MatFormFieldModule
 ]
 
+const components = [
+  PathRootMatchPipe
+]
+
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     ...modules

@@ -21,13 +21,14 @@ export class AppComponent {
     {
       title: 'Module 0',
       path: '/module0',
-      icon: 'home'
+      icon: 'home',
     },
     {
       title: 'Module 10',
       active: false,
       icon: 'radio_button_checked',
-
+      path: '/module1',
+      disabled: true,
       children: [
         {
           title: 'Page 1',
@@ -46,6 +47,8 @@ export class AppComponent {
     {
       title: 'Module 2',
       active: false,
+      path: '/module2',
+      disabled: true,
       children: [
         {
           title: 'Page 1',

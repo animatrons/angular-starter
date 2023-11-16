@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ActivatedRoute, NavigationEnd, Router, RouterLink } from '@angular/router';
 import { Observable, filter, map, share, shareReplay, tap } from 'rxjs';
+import { PathRootMatchPipe } from 'src/app/shared/pipes/path-root-match.pipe';
 import { NavTree } from 'src/app/shared/types/util.interfaces';
 
 @Component({
@@ -12,7 +13,7 @@ import { NavTree } from 'src/app/shared/types/util.interfaces';
   styleUrls: ['./side-nav.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, NgFor, NgClass, AsyncPipe, RouterLink, MatIconModule, MatListModule]
+  imports: [NgIf, NgFor, NgClass, AsyncPipe, RouterLink, MatIconModule, MatListModule, PathRootMatchPipe]
 })
 export class SideNavComponent {
   @Input() toggled!: boolean;
@@ -61,8 +62,8 @@ export class SideNavComponent {
     })
   }
 
-  activateLink(path: string | null) {
-    if (path) this.router.navigate([path]);
+  activateLink(path: string | null, disabled?: boolean) {
+    if (path && !disabled) this.router.navigate([path]);
   }
 
 }

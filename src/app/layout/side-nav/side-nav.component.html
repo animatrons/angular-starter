@@ -16,9 +16,9 @@
 
       <ng-container *ngIf="opened">
         <ng-container *ngFor="let item of navTree">
-          <mat-list-item (click)="item.active = !item.active; activateLink(item.path ?? null)" [ngClass]="{'list-item-active': (url$ | async) === item.path}">
+          <mat-list-item (click)="item.active = !item.active; activateLink(item.path ?? null, item.disabled)" [ngClass]="{'list-item-active': ((url$ | async) ?? '') | pathRootMatch : item.path ?? '0'}">
             <mat-icon class="material-icons-outlined"  matListItemIcon>{{item.icon ?? 'description'}}</mat-icon>
-            <a matListItemTitle #link [routerLink]="item.path">{{item.title}}</a>
+            <a matListItemTitle #link>{{item.title}}</a>
             <span matListItemMeta *ngIf="item.children">
               <mat-icon class="expand-icon" [ngClass]="{'rotated' : item.active}">
                 expand_more
