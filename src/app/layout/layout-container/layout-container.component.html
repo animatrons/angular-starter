@@ -7,7 +7,7 @@
     <span>
       <strong class="logo">Dark Mode</strong>
       <mat-slide-toggle (change)="switchTheme($event)"
-        [checked]="currentTheme === 'dark-theme'"
+        [checked]="darkMode$ | async"
       ></mat-slide-toggle>
     </span>
   </header>
