@@ -1,17 +1,10 @@
-$shell-theme-primary: mat-palette($mat-cyan);
-$shell-theme-accent: mat-palette($mat-teal);
-$shell-theme-warn: mat-palette($mat-red);
+@import '@angular/material/theming';
 
-$md-background: (
-  50: #f3f3f3,
-  100: #ebf1f1,
-  200: #dae1e2,
-  300: #cce7eb,
-  400: #a6c8cc,
-  500: #97b4b8,
+$background: (
+
 );
 
-$md-primary: (
+$ruz-sky: (
   50: #a6cacf,
   100: #93cad1,
   200: #75bdc7,
@@ -42,9 +35,17 @@ $md-primary: (
     A400: #ffffff,
     A700: #ffffff,
   ),
+  background: (
+    50: #3b6b8b,
+    100: #082230,
+    200: #dae1e2,
+    300: #cce7eb,
+    400: #a6c8cc,
+    500: #101111,
+  )
 );
 
-$md-secondary: (
+$ruz-earth: (
   50: #68918d,
   100: #478d86,
   200: #28968b,
@@ -75,14 +76,34 @@ $md-secondary: (
     A400: #ffffff,
     A700: #ffffff,
   ),
+  background: (
+    50: #c0d6d5,
+    100: rgb(216, 96, 67),
+    200: #7d8586,
+    300: rgb(141, 169, 173),
+    400: #6c9599,
+    500: #30494d,
+  )
 );
 
 $ruz-theme: mat.define-light-theme((
   color: (
-    primary: mat.define-palette($md-primary, 300, 200, 500),
-    accent: mat.define-palette($md-primary, A400, A200, A700),
+    primary: mat.define-palette($ruz-sky, 300, 200, 500),
+    accent: mat.define-palette($ruz-sky, A400, A200, A700),
     warn: mat.define-palette(mat.$red-palette),
   ),
   typography: mat.define-typography-config(),
   density: 0,
+  form-field-density: -1
+));
+
+$ruz-dark-theme: mat.define-light-theme((
+  color: (
+    primary: mat.define-palette($ruz-earth, 700, 600, 800),
+    accent: mat.define-palette($ruz-earth, A400, A200, A700),
+    warn: mat.define-palette(mat.$red-palette),
+  ),
+  typography: mat.define-typography-config(),
+  density: 0,
+  form-field-density: -1
 ));

@@ -1,13 +1,27 @@
 @use '@angular/material' as mat;
 @import "@angular/material/prebuilt-themes/indigo-pink.css";
 @import '@angular/material/theming';
+@import 'theme-ruz.scss';
+
+@import '/src/app/layout/layout-container/layout-container.component.scss';
+// @import '/src/app/layout/side-nav/side-nav.component.scss';
 
 @include mat.core();
 
-@import 'theme-ruz.scss';
+
+// @mixin app-theme($theme) {
+//   @include mat.core-theme($theme);
+//   @include mat.all-component-themes($theme);
+// }
 
 .ruz-theme {
   @include mat.core-theme($ruz-theme);
   @include mat.all-component-themes($ruz-theme);
-  @include mat.form-field-density(-2);
+  @include header-theme($ruz-theme);
+}
+
+.ruz-dark-theme {
+  @include mat.core-theme($ruz-dark-theme);
+  @include mat.all-component-themes($ruz-dark-theme);
+  @include header-theme($ruz-dark-theme);
 }

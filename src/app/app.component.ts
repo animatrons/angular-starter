@@ -1,18 +1,32 @@
 import { Component } from '@angular/core';
 import { NavTree } from './shared/types/util.interfaces';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { LayoutContainerComponent } from './layout/layout-container/layout-container.component';
+import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core';
+import { StoreModule } from '@ngrx/store';
+import { metaReducers, reducers } from './store';
+
+const globalRippleConfig: RippleGlobalOptions = {
+  disabled: false,
+  animation: {
+    enterDuration: 0,
+    exitDuration: 0
+  }
+};
 
 @Component({
   selector: 'app-root',
   standalone: true,
   template: `
-    <app-layout-container [navTree]="navTree" class="h-100 w-100 ruz-theme">
+    <app-layout-container [navTree]="navTree" class="h-100 w-100">
       <router-outlet></router-outlet>
     </app-layout-container>
   `,
   styleUrls: ['./app.component.scss'],
-  imports: [RouterOutlet, LayoutContainerComponent]
+  imports: [RouterOutlet, LayoutContainerComponent],
+  providers: [
+    {provide: MAT_RIPPLE_GLOBAL_OPTIONS, useValue: globalRippleConfig}
+  ]
 })
 export class AppComponent {
   title = 'angular-starter';

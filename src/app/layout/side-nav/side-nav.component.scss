@@ -1,7 +1,4 @@
-@import "/src/styles/theme.scss";
-
 .wrapper {
-  background-color: map-get($md-background, 50);
   height: 100%;
   overflow-x: hidden;
 
@@ -45,11 +42,10 @@
     }
     .list-item-active {
       mat-icon {
-        color: map-get($md-primary, 300) !important;
+        font-weight: 500;
       }
       a {
-        font-style: normal;
-        color: map-get($md-primary, 300) !important;
+        font-weight: 500;
       }
     }
   }

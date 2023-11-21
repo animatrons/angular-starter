@@ -1,0 +1,26 @@
+@import '@angular/material/theming';
+
+@mixin sidenav-theme($theme) {
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  app-side-nav .wrapper {
+    background-color: mat-color($background, background-2);
+
+    a {
+      color: mat-color($foreground, text) !important;
+    }
+    mat-list-item mat-icon {
+      color: mat-color($foreground, text) !important;
+    }
+    .list-item-active {
+      mat-icon {
+        color: mat-color($foreground, active)!important;
+      }
+      a {
+        font-style: normal;
+        color: mat-color($foreground, active)!important;
+      }
+    }
+  }
+}

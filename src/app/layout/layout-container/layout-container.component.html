@@ -5,7 +5,10 @@
     </span>
 
     <span>
-      <strong class="logo">LOGO</strong>
+      <strong class="logo">Dark Mode</strong>
+      <mat-slide-toggle (change)="switchTheme($event)"
+        [checked]="currentTheme === 'dark-theme'"
+      ></mat-slide-toggle>
     </span>
   </header>
   <mat-drawer-container class="main-container" autosize>

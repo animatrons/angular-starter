@@ -1,14 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-@import './styles/theme.scss';
+@use '@angular/material' as mat;
+
+@import './styles/main-theme.scss';
 @import './styles/flex.scss';
 @import './styles/layout.scss';
 
-// @import "@angular/material/prebuilt-themes/deeppurple-amber.css";
-// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-// @import "@angular/material/theming";
+@import './app/layout/side-nav/side-nave.component.theme.scss';
+@import './app/layout/layout-container/layout-container.component.theme.scss';
 
 html, body { margin: 0;
   height: 100vh;
   max-width: 100vw;
 }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+// Theme Init
+
+.dark-theme {
+  @include mat.all-component-themes($theme);
+  @include sidenav-theme($theme);
+  @include header-theme($theme);
+
+}
+
+.light-theme {
+  @include mat.all-component-themes($altTheme);
+  @include sidenav-theme($altTheme);
+  @include header-theme($altTheme);
+}

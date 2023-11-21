@@ -1,0 +1,11 @@
+@import '@angular/material/theming';
+
+@mixin header-theme($theme) {
+  $primary-bg: map-get($theme, primary);
+  $foreground: map-get($theme, foreground);
+
+  header {
+    background-color: mat-color($primary-bg, darker);
+    // color: mat-color($foreground, text);
+  }
+}
