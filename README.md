@@ -11,3 +11,4 @@ Has **side nav** and routing setup and custom material theme.
 ```
 ng generate @ngrx/schematics:feature store/Feature --group --reducers index.ts
 ```
+then add the FeatureEffect to EffectsModule forRoot.
