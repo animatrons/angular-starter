@@ -17,7 +17,7 @@ export const reducer = createReducer(
     ...state,
     darkMode: true
   })),
-  on(ThemeActions.enableDarkMode, state => ({
+  on(ThemeActions.disableDarkMode, state => ({
     ...state,
     darkMode: false
   })),

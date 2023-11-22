@@ -7,7 +7,7 @@ import { AsyncPipe, DOCUMENT } from '@angular/common';
 import { Store, select } from '@ngrx/store';
 import {ThemeActions} from 'src/app/store/actions/theme.actions';
 import * as fromTheme from 'src/app/store/selectors/theme.selectors';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Component({
   selector: 'app-layout-container',
@@ -29,7 +29,7 @@ export class LayoutContainerComponent implements OnInit {
   @ViewChild('drawer') drawer!: ElementRef;
 
   constructor(public store: Store) {
-    this.darkMode$ = this.store.pipe(select(fromTheme.selectDarkModeState))
+    this.darkMode$ = this.store.pipe(select(fromTheme.selectDarkModeState));
   }
 
   toggleDrawer() {

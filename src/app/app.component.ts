@@ -3,8 +3,6 @@ import { NavTree } from './shared/types/util.interfaces';
 import { RouterOutlet } from '@angular/router';
 import { LayoutContainerComponent } from './layout/layout-container/layout-container.component';
 import { MAT_RIPPLE_GLOBAL_OPTIONS, RippleGlobalOptions } from '@angular/material/core';
-import { StoreModule } from '@ngrx/store';
-import { metaReducers, reducers } from './store';
 
 const globalRippleConfig: RippleGlobalOptions = {
   disabled: false,

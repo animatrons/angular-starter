@@ -15,8 +15,6 @@ export class ThemeService {
   }
 
   toggleDarkMode(enable: boolean) {
-    console.log('Toggling dark mode', enable);
-
     if (enable) {
       this.renderer.addClass(this.document.body, DARK_THEME_CLASS);
       this.renderer.removeClass(this.document.body, LIGHT_THEME_CLASS);
